@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mô phỏng Không gian 3D Lớp học 5A1</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -154,16 +153,16 @@
     <nav class="fixed bottom-3 left-1/2 -translate-x-1/2 z-30 max-w-[96vw] overflow-x-auto pointer-events-auto">
         <div class="glass-panel flex items-center gap-1.5 px-2.5 py-2 rounded-2xl shadow-2xl whitespace-nowrap text-xs">
             <button onclick="moveCameraToPreset('exterior')" class="px-3 py-1.5 rounded-xl bg-slate-800/90 hover:bg-indigo-600 text-slate-100 font-semibold transition flex items-center gap-1.5">
-                <span>🏢</span><span>Bên ngoài (Như Video)</span>
+                <span>🏢</span><span>Bên ngoài</span>
             </button>
             <button onclick="moveCameraToPreset('overview')" class="px-3 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold transition flex items-center gap-1.5">
-                <span>🏫</span><span>Toàn cảnh Lớp 5A1</span>
+                <span>🏫</span><span>Toàn cảnh lớp</span>
             </button>
             <button onclick="moveCameraToPreset('podium')" class="px-3 py-1.5 rounded-xl bg-slate-800/90 hover:bg-indigo-600 text-slate-100 font-medium transition flex items-center gap-1.5">
-                <span>🇻🇳</span><span>Bục giảng & Bác Hồ</span>
+                <span>🇻🇳</span><span>Bục giảng và Bác Hồ</span>
             </button>
             <button onclick="moveCameraToPreset('creative')" class="px-3 py-1.5 rounded-xl bg-slate-800/90 hover:bg-indigo-600 text-slate-100 font-medium transition flex items-center gap-1.5">
-                <span>🎨</span><span>Bảng tin & Góc sáng tạo</span>
+                <span>🎨</span><span>Bảng tin và Góc sáng tạo</span>
             </button>
             <button onclick="moveCameraToPreset('reading')" class="px-3 py-1.5 rounded-xl bg-slate-800/90 hover:bg-indigo-600 text-slate-100 font-medium transition flex items-center gap-1.5">
                 <span>📚</span><span>Góc đọc sách</span>
@@ -235,7 +234,7 @@
         const HOTSPOTS_DATA = [
             {
                 id: 'uncleHoBoard',
-                title: 'Chân dung Bác Hồ & Bảng Tương Tác',
+                title: 'Chân dung Bác Hồ và Bảng giảng',
                 icon: '🇻🇳',
                 pos: new THREE.Vector3(-0.15, 2.85, -4.38),
                 camPreset: 'podium',
@@ -244,7 +243,7 @@
             },
             {
                 id: 'fiveTeachings',
-                title: '5 Điều Bác Hồ Dạy & Bàn Giáo Viên',
+                title: '5 Điều Bác Hồ Dạy và Bàn Giáo Viên',
                 icon: '💺',
                 pos: new THREE.Vector3(-2.85, 1.95, -4.15),
                 camPreset: 'podium',
@@ -253,7 +252,7 @@
             },
             {
                 id: 'readingCorner',
-                title: 'Góc đọc sách & Cửa sổ',
+                title: 'Góc đọc sách và Cửa sổ',
                 icon: '📚',
                 pos: new THREE.Vector3(-4.25, 1.55, -1.65),
                 camPreset: 'reading',
@@ -262,7 +261,7 @@
             },
             {
                 id: 'creativeCorner',
-                title: 'Bảng tin & Góc sáng tạo',
+                title: 'Bảng tin và Góc sáng tạo',
                 icon: '🎨',
                 pos: new THREE.Vector3(3.15, 1.85, -4.35),
                 camPreset: 'creative',
@@ -271,7 +270,7 @@
             },
             {
                 id: 'studentDesks',
-                title: 'Bàn ghế Học sinh (Mặt bàn trống)',
+                title: 'Bàn ghế học sinh',
                 icon: '🪑',
                 pos: new THREE.Vector3(0, 0.85, 0.3),
                 camPreset: 'desks',
