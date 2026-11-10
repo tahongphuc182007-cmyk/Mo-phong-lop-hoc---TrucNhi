@@ -131,7 +131,7 @@
         <button
           onclick="triggerFiveTeachingsUpload()"
           class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-sky-600/90 hover:bg-sky-500 text-white font-semibold shadow-sm transition"
-          title="Tải trực tiếp ảnh 5 Điều Bác Hồ Dạy nếu muốn"
+          title="Tải trực tiếp ảnh 5 Điều bác Hồ dạy nếu muốn"
         >
           <span>📜</span>
           <span class="hidden md:inline">Ảnh 5 Điều bác Hồ dạy</span>
@@ -164,7 +164,7 @@
         <button
           onclick="spinTeacherChairAction()"
           class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-blue-600/90 hover:bg-blue-500 text-white font-semibold border border-blue-400/40 transition"
-          title="Click để xoay ghế văn phòng của giáo viên (hoặc click trực tiếp vào ghế trong 3D)"
+          title="Click để xoay ghế văn phòng của giáo viên"
         >
           <span>💺</span>
           <span class="hidden sm:inline">Xoay ghế GV</span>
@@ -1052,7 +1052,7 @@
         return tex;
       }
 
-      // ULTRA-HD Poster: "5 ĐIỀU BÁC HỒ DẠY THIẾU NIÊN NHI ĐỒNG" & "Trích thư HỒ CHỦ TỊCH"
+      // ULTRA-HD Poster: "5 ĐIỀU BÁC HỒ DẠY THIẾU NIÊN NHI ĐỒNG" Và "Trích thư Hồ Chủ Tịch"
       // Fixed 100% character spacing — NO squished/overlapping text, 1200x1640 crisp resolution
       function createUncleHoPosterPairTexture(type = "fiveTeachings") {
         const canvas = document.createElement("canvas");
@@ -1225,7 +1225,7 @@
           ctx.textAlign = "center";
           ctx.fillText("5", 465, 395);
 
-          // 4C. Crisp Uncompressed Header: "ĐIỀU BÁC HỒ DẠY" & "THIẾU NIÊN NHI ĐỒNG"
+          // 4C. Crisp Uncompressed Header: "5 ĐIỀU BÁC HỒ DẠY" VÀ "THIẾU NIÊN NHI ĐỒNG"
           ctx.textAlign = "center";
           ctx.fillStyle = "#1e3a8a";
           ctx.font = '900 54px "Segoe UI", Roboto, Inter, Arial, sans-serif';
