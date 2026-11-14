@@ -126,7 +126,7 @@
         const HOTSPOTS_DATA = [
             {
                 id: 'noiQuyDien',
-                title: 'Nội Quy Lớp Học & Công Tắc Điện 3D',
+                title: 'Nội Quy Lớp Học và Công Tắc Điện',
                 icon: '⚡',
                 pos: new THREE.Vector3(3.35, 1.85, -4.35),
                 camPreset: 'overview',
@@ -144,7 +144,7 @@
             },
             {
                 id: 'fiveTeachings',
-                title: '5 Điều Bác Hồ Dạy & Bàn Giáo Viên',
+                title: '5 Điều Bác Hồ Dạy và Bàn Giáo Viên',
                 icon: '💺',
                 pos: new THREE.Vector3(-2.85, 1.95, -4.15),
                 camPreset: 'podium',
@@ -153,21 +153,21 @@
             },
             {
                 id: 'firstAidBoxSpot',
-                title: 'Hộp Y Tế 3D (Sát Cạnh Bảng Xanh)',
+                title: 'Hộp Y Tế',
                 icon: '➕',
                 pos: new THREE.Vector3(-2.14, 1.38, -4.38),
                 camPreset: 'podium',
                 desc: 'Hộp y tế 3D gắn tường sát cạnh trái bảng từ xanh giúp không gian phía sau ghế giáo viên thông thoáng, không bị đụng khi ngồi hoặc xoay ghế. Cửa kính có bản lề đóng/mở trực tiếp với 2 tầng kệ đựng đầy đủ bông gòn, tăm bông, băng cá nhân, cồn y tế, thuốc sát trùng, băng gạc và găng tay.',
-                tags: ['Sát cạnh bảng xanh', 'Không đụng ghế GV', 'Đóng/Mở trực tiếp']
+                tags: ['Hộp Y Tế']
             },
             {
                 id: 'waterHygieneSpot',
-                title: 'Kệ Nước Uống & Trạm Vệ Sinh Cá Nhân 3D',
+                title: 'Kệ Nước Uống và Trạm Vệ Sinh Cá Nhân',
                 icon: '🚰',
                 pos: new THREE.Vector3(4.58, 0.95, -0.52),
                 camPreset: 'waterHygiene',
                 desc: 'Kệ nước uống (bình nước 20L có vòi và mực nước, khay 5 ca nước có quai cầm, chậu trầu bà rủ lá, cuộn khăn giấy lau) và Trạm vệ sinh cá nhân (bồn rửa tay sứ trắng lòng sâu, vòi inox, 3 chai nước rửa tay, khăn xếp, cuộn giấy lau tay). Cả 2 tủ ngăn dưới đều có thể click để mở/đóng cánh tủ xem các vật dụng dự trữ bên trong!',
-                tags: ['Mở được 2 tủ ngăn dưới', 'Bình nước & Ca có quai', 'Bồn rửa tay & Cuộn khăn giấy']
+                tags: ['Mở được 2 tủ ngăn dưới', 'Bình nước và Ca nước', 'Bồn rửa tay và Khăn giấy']
             },
             {
                 id: 'calmAndBehavior',
@@ -185,43 +185,43 @@
                 pos: new THREE.Vector3(-3.68, 1.65, 4.25),
                 camPreset: 'reading',
                 desc: 'Góc đọc sách phía sau lớp: kệ gỗ 3 tầng phân loại (Báo, tạp chí & Văn học; Khoa học – STEM; Truyện lịch sử / Danh nhân), quả địa cầu, bảng Nội quy góc đọc sách, thảm xanh da trời và 3 đệm hoa 6 cánh.',
-                tags: ['Kệ sách 3 tầng & Địa cầu', 'Nội quy góc đọc sách', '3 Đệm hoa 6 cánh']
+                tags: ['Kệ sách 3 tầng', 'Nội quy góc đọc sách']
             },
             {
                 id: 'creativeCorner',
-                title: 'Góc Sáng Tạo & Thùng Rác Phân Loại',
+                title: 'Góc Sáng Tạo Và Thùng Rác Phân Loại',
                 icon: '🎨',
                 pos: new THREE.Vector3(3.45, 1.65, 4.25),
                 camPreset: 'creative',
                 desc: 'Góc sáng tạo phía sau lớp: bảng pegboard treo kéo, súng bắn keo, băng keo và 4 giỏ bút màu; bàn 2 tầng trưng bày 4 mô hình (Tuabin gió, Robot thông minh, Ngôi nhà xanh, Tên lửa), 4 khay học liệu, bảng Nội quy góc sáng tạo và Thùng rác xanh.',
-                tags: ['4 Mô hình STEM', 'Pegboard & 4 Khay học liệu', 'Thùng rác xanh']
+                tags: ['Mô hình STEM', 'Khay học liệu']
             },
             {
                 id: 'studentDesks',
-                title: '6 Bàn Nhóm Học Sinh (Nhóm 1 – Nhóm 6)',
+                title: '6 Bàn Nhóm Học Sinh',
                 icon: '🪑',
                 pos: new THREE.Vector3(0.20, 0.88, 0.15),
                 camPreset: 'desks',
                 desc: '6 bộ bàn nhóm hình chữ nhật bo góc mặt gỗ vàng mật ong chân sắt tròn sơn bạc (Nhóm 1 đến Nhóm 6), mỗi bàn gồm 6 ghế học sinh xếp quay quanh bàn và 1 chậu cây xanh đặt chính giữa mặt bàn.',
-                tags: ['6 Bàn nhóm (Nhóm 1–6)', '6 Ghế / bàn', 'Chậu cây giữa bàn']
+                tags: ['6 Bàn nhóm']
             },
             {
                 id: 'door5A',
-                title: 'Cửa đôi Lớp 5A & Lớp Học Hạnh Phúc',
+                title: 'Cửa Lớp 5A Và Lớp Học Hạnh Phúc',
                 icon: '🚪',
                 pos: new THREE.Vector3(4.95, 1.45, -1.85),
                 camPreset: 'door5A',
                 desc: 'Cửa đôi 2 cánh nối liền màu xanh lam kèm ô kính thông gió phía trên. Cánh trái trang trí bảng "LỚP HỌC HẠNH PHÚC", 8 nhãn điều tốt đẹp và vườn hoa tulip; cánh phải có 15 ô kính 3×5. Có thể mở ra bên ngoài hành lang, đẩy vào bên trong lớp hoặc đóng kín.',
-                tags: ['2 cửa nối liền', 'Mở ra ngoài / Đẩy vào trong', 'Lớp Học Hạnh Phúc']
+                tags: ['Mở ra/ đóng vào', 'Lớp Học Hạnh Phúc']
             },
             {
                 id: 'corridorGarden5A',
-                title: 'Bảng Phân Công Trực Nhật & Khu Vườn Trước Lớp 5A',
+                title: 'Bảng Phân Công Trực Nhật và Khu Vườn Trước Lớp 5A',
                 icon: '🌺',
                 pos: new THREE.Vector3(5.05, 1.65, 0.55),
                 camPreset: 'corridor5A',
                 desc: 'Khung cảnh hành lang phía trước Lớp 5A gồm biển chào "LỚP 5A - Mỗi ngày đến lớp là một hành trình khám phá và trưởng thành", bảng "PHÂN CÔNG TRỰC NHẬT VÀ CHĂM SÓC MÔI TRƯỜNG LỚP HỌC - Tuần 1" (Nhóm 1–6: Trực lớp, Trực hành lang, Chăm sóc cây xanh), cửa sổ 3 ô màu xanh lam treo 3 chậu trầu bà rủ, bồn hoa gạch đá xám có hàng rào trắng và các chậu cây cảnh xanh tươi.',
-                tags: ['Bảng Lớp 5A', 'Bảng phân công trực nhật', 'Bồn hoa & 3 chậu treo']
+                tags: ['Bảng Lớp 5A', 'Bảng phân công trực nhật']
             }
         ];
 
@@ -672,7 +672,7 @@
                 el.textContent = firstAidOpen ? 'Đang mở' : 'Đóng';
                 el.className = firstAidOpen ? 'text-emerald-300 font-bold' : 'text-amber-200 font-bold';
             }
-            showToast(firstAidOpen ? '➕ Đã mở cửa Hộp y tế 3D!' : '➕ Đã đóng cửa Hộp y tế 3D!');
+            showToast(firstAidOpen ? '➕ Đã mở cửa Hộp y tế' : '➕ Đã đóng cửa Hộp y tế');
         }
 
         function updateLowerCabinetsStateLabel() {
@@ -709,13 +709,13 @@
             const nextState = !(waterCabOpen && hygieneCabOpen);
             setCabinetDoorsState('water', nextState);
             setCabinetDoorsState('hygiene', nextState);
-            showToast(nextState ? '🗄️ Đã mở cả 2 tủ ngăn dưới (Kệ nước uống & Trạm vệ sinh)!' : '🗄️ Đã đóng cả 2 tủ ngăn dưới!');
+            showToast(nextState ? '🗄️ Đã mở 2 tủ ngăn dưới' : '🗄️ Đã đóng cả 2 tủ ngăn dưới');
         }
 
         function spinTeacherChairAction() {
             teacherChairAutoOscillate = false;
             teacherChairTargetYaw += Math.PI * 0.65;
-            showToast('💺 Đang xoay ghế văn phòng của giáo viên!');
+            showToast('💺Ghế giáo viên');
         }
 
         function showToast(msg) {
@@ -1125,7 +1125,7 @@
             return tex;
         }
 
-        // ULTRA-HD Poster: "5 ĐIỀU BÁC HỒ DẠY THIẾU NIÊN NHI ĐỒNG" & "Trích thư HỒ CHỦ TỊCH"
+        // ULTRA-HD Poster: "5 ĐIỀU BÁC HỒ DẠY THIẾU NIÊN NHI ĐỒNG" VÀ "Trích thư HỒ CHỦ TỊCH"
         // Fixed 100% character spacing — NO squished/overlapping text, 1200x1640 crisp resolution
         function createUncleHoPosterPairTexture(type = 'fiveTeachings') {
             const canvas = document.createElement('canvas');
@@ -1281,7 +1281,7 @@
                 ctx.textAlign = 'center';
                 ctx.fillText('5', 465, 395);
 
-                // 4C. Crisp Uncompressed Header: "ĐIỀU BÁC HỒ DẠY" & "THIẾU NIÊN NHI ĐỒNG"
+                // 4C. Crisp Uncompressed Header: "ĐIỀU BÁC HỒ DẠY" VÀ "THIẾU NIÊN NHI ĐỒNG"
                 ctx.textAlign = 'center';
                 ctx.fillStyle = '#1e3a8a';
                 ctx.font = '900 54px "Segoe UI", Roboto, Inter, Arial, sans-serif';
