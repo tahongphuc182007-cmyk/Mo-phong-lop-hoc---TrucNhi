@@ -71,7 +71,7 @@
     <!-- Floating Button to Restore Guide Bars when Hidden -->
     <button id="show-guide-bars-fab" onclick="toggleGuideBars()" class="hidden fixed top-3 right-3 z-40 glass-panel px-3.5 py-2 rounded-2xl text-xs font-extrabold text-amber-300 hover:text-white shadow-2xl border border-amber-400/50 items-center gap-2 transition pointer-events-auto" title="Hiện lại các thanh hướng dẫn và điều khiển">
         <span>👁️</span>
-        <span>Hiện thanh hướng dẫn</span>
+        <span>Thanh hướng dẫn</span>
     </button>
 
     <!-- Top Navigation & Control Bar -->
@@ -98,7 +98,7 @@
 
             <button onclick="triggerFiveTeachingsUpload()" class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-sky-600/90 hover:bg-sky-500 text-white font-semibold shadow-sm transition" title="Tải trực tiếp ảnh 5 Điều Bác Hồ Dạy nếu muốn">
                 <span>📜</span>
-                <span class="hidden md:inline">Ảnh 5 Điều</span>
+                <span class="hidden md:inline">5 Điều Bác Hồ dạy</span>
             </button>
 
             <!-- Real-time Exposure / Brightness Slider to prevent classroom glare -->
@@ -111,7 +111,7 @@
 
             <button onclick="spinTeacherChairAction()" class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-blue-600/90 hover:bg-blue-500 text-white font-semibold border border-blue-400/40 transition" title="Click để xoay ghế văn phòng của giáo viên (hoặc click trực tiếp vào ghế trong 3D)">
                 <span>💺</span>
-                <span class="hidden sm:inline">Xoay ghế GV</span>
+                <span class="hidden sm:inline">Ghế Giáo Viên</span>
             </button>
 
             <button onclick="toggleFans()" class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-slate-800/90 hover:bg-slate-700 text-slate-100 font-medium border border-slate-600/60 transition">
@@ -194,28 +194,28 @@
     <nav id="bottom-guide-nav" class="fixed bottom-3 left-1/2 -translate-x-1/2 z-30 max-w-[96vw] overflow-x-auto pointer-events-auto transition-opacity duration-300">
         <div class="glass-panel flex items-center gap-1.5 px-2.5 py-2 rounded-2xl shadow-2xl whitespace-nowrap text-xs">
             <button onclick="moveCameraToPreset('exterior')" class="px-3 py-1.5 rounded-xl bg-slate-800/90 hover:bg-indigo-600 text-slate-100 font-semibold transition flex items-center gap-1.5">
-                <span>🏢</span><span>Bên ngoài (Như Video)</span>
+                <span>🏢</span><span>Bên ngoài</span>
             </button>
             <button onclick="moveCameraToPreset('overview')" class="px-3 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold transition flex items-center gap-1.5">
                 <span>🏫</span><span>Toàn cảnh Lớp 5A1</span>
             </button>
             <button onclick="moveCameraToPreset('podium')" class="px-3 py-1.5 rounded-xl bg-slate-800/90 hover:bg-indigo-600 text-slate-100 font-medium transition flex items-center gap-1.5">
-                <span>🇻🇳</span><span>Bục giảng & Bác Hồ</span>
+                <span>🇻🇳</span><span>Bục giảng và Ảnh Bác Hồ</span>
             </button>
             <button onclick="moveCameraToPreset('creative')" class="px-3 py-1.5 rounded-xl bg-slate-800/90 hover:bg-indigo-600 text-slate-100 font-medium transition flex items-center gap-1.5">
                 <span>🎨</span><span>Góc sáng tạo</span>
             </button>
             <button onclick="moveCameraToPreset('backWall')" class="px-3 py-1.5 rounded-xl bg-rose-600/90 hover:bg-rose-500 text-white font-semibold transition flex items-center gap-1.5">
-                <span>🌈</span><span>Phía sau lớp (6 Góc)</span>
+                <span>🌈</span><span>Phía sau lớp </span>
             </button>
             <button onclick="moveCameraToPreset('calmCorner')" class="px-3 py-1.5 rounded-xl bg-sky-600/90 hover:bg-sky-500 text-white font-semibold transition flex items-center gap-1.5">
-                <span>🧘</span><span>Góc bình tĩnh & Hành vi</span>
+                <span>🧘</span><span>Góc bình tĩnh và Hành vi</span>
             </button>
             <button onclick="moveCameraToPreset('reading')" class="px-3 py-1.5 rounded-xl bg-slate-800/90 hover:bg-indigo-600 text-slate-100 font-medium transition flex items-center gap-1.5">
                 <span>📚</span><span>Góc đọc sách</span>
             </button>
             <button onclick="moveCameraToPreset('hopThuSinhNhat')" class="px-3 py-1.5 rounded-xl bg-pink-600/90 hover:bg-pink-500 text-white font-semibold transition flex items-center gap-1.5">
-                <span>🎂</span><span>Hộp thư & Sinh nhật</span>
+                <span>🎂</span><span>Hộp thư và Sinh nhật</span>
             </button>
             <button onclick="moveCameraToPreset('desks')" class="px-3 py-1.5 rounded-xl bg-slate-800/90 hover:bg-indigo-600 text-slate-100 font-medium transition flex items-center gap-1.5">
                 <span>🪑</span><span>Bàn ghế học sinh</span>
@@ -224,7 +224,7 @@
                 <span>🌺</span><span>Hành lang trước Lớp 5A</span>
             </button>
             <button onclick="moveCameraToPreset('waterHygiene')" class="px-3 py-1.5 rounded-xl bg-cyan-600/90 hover:bg-cyan-500 text-white font-semibold transition flex items-center gap-1.5">
-                <span>🚰</span><span>Kệ nước & Vệ sinh</span>
+                <span>🚰</span><span>Kệ nước và Trạm vệ sinh</span>
             </button>
             <button onclick="moveCameraToPreset('door5A')" class="px-3 py-1.5 rounded-xl bg-blue-600/90 hover:bg-blue-500 text-white font-semibold transition flex items-center gap-1.5">
                 <span>🚪</span><span>Cửa Lớp 5A</span>
@@ -273,7 +273,7 @@
         let firstAidCabinetGroup = null;
         let firstAidDoorPivot = null;
         let firstAidOpen = false;
-        let lowerCabinetDoors = []; // interactive hinged doors on Kệ nước uống & Trạm vệ sinh cá nhân
+        let lowerCabinetDoors = []; // interactive hinged doors on Kệ nước uống và Trạm vệ sinh cá nhân
         let waterCabOpen = false;
         let hygieneCabOpen = false;
         let noiQuyLopMaterial = null;
@@ -361,34 +361,34 @@
         const HOTSPOTS_DATA = [
             {
                 id: 'noiQuyDien',
-                title: 'Nội Quy Lớp Học & Công Tắc Điện 3D',
+                title: 'Nội Quy Lớp Học và Công Tắc Điện',
                 icon: '⚡',
                 pos: new THREE.Vector3(3.35, 1.85, -4.35),
                 camPreset: 'overview',
                 desc: 'Bộ 2 bảng khung gỗ tự nhiên gồm Nội quy lớp học (5 điều do học sinh xây dựng) và Nội quy sử dụng thiết bị điện trong lớp, đi kèm bộ công tắc điện 3D gắn tường ngay bên cạnh để bật/tắt đèn và quạt trực tiếp.',
-                tags: ['Nội quy lớp học', 'An toàn điện', 'Công tắc Đèn & Quạt 3D']
+                tags: ['Nội quy lớp học', 'An toàn điện', 'Công tắc điện']
             },
             {
                 id: 'uncleHoBoard',
-                title: 'Chân dung Bác Hồ, Bảng Từ Xanh & Vườn Hoa Thi Đua Dọc',
+                title: 'Chân dung Bác Hồ, Bảng Từ Xanh và Vườn Hoa Thi Đua',
                 icon: '🇻🇳',
                 pos: new THREE.Vector3(-0.14, 3.05, -4.38),
                 camPreset: 'podium',
                 desc: 'Chân dung Chủ tịch Hồ Chí Minh treo trang trọng sát trần nhà, bên dưới là khẩu hiệu "TIÊN HỌC LỄ - HẬU HỌC VĂN", bảng từ xanh 4 cánh trượt kết hợp Tivi thông minh và bảng "Vườn hoa thi đua (Nhóm 1 – Nhóm 6)" kèm hộp Hoa cá nhân & Sao hợp tác dán dọc đứng trực tiếp trên cánh bảng xanh phía sau bên trái (khi đẩy cánh bảng trượt thứ 2 sang sẽ che gọn Vườn hoa thi đua).',
-                tags: ['Chân dung Bác Hồ', 'Bảng từ xanh & Tivi', 'Vườn hoa thi đua dán dọc']
+                tags: ['Chân dung Bác Hồ', 'Bảng từ xanh và Tivi', 'Vườn hoa thi đua']
             },
             {
                 id: 'fiveTeachings',
-                title: '5 Điều Bác Hồ Dạy & Bàn Giáo Viên',
+                title: '5 Điều Bác Hồ Dạy',
                 icon: '💺',
                 pos: new THREE.Vector3(-2.85, 1.95, -4.15),
                 camPreset: 'podium',
-                desc: 'Bộ bảng đôi "5 Điều Bác Hồ Dạy Thiếu Niên Nhi Đồng" & "Trích thư Hồ Chủ Tịch" chữ sắc nét không dính chữ, tủ hồ sơ 2 cánh kính có cây trầu bà rủ lá, bàn giáo viên chân sắt hộp chữ U và ghế văn phòng xoay 360° bọc nỉ xanh dương (Click vào ghế để xoay!).',
-                tags: ['Ghế văn phòng xoay 360°', '5 Điều Bác Hồ Dạy HD', 'Tủ kính & Hoa hồng']
+                desc: '"5 Điều Bác Hồ Dạy Thiếu Niên Nhi Đồng"  "Trích thư Hồ Chủ Tịch" chữ sắc nét không dính chữ, tủ hồ sơ 2 cánh kính có cây trầu bà rủ lá, bàn giáo viên chân sắt hộp chữ U và ghế văn phòng xoay 360° bọc nỉ xanh dương (Click vào ghế để xoay!).',
+                tags: ['Ghế văn phòng xoay 360°', '5 Điều Bác Hồ Dạy', 'Tủ kính và Hoa hồng']
             },
             {
                 id: 'firstAidBoxSpot',
-                title: 'Hộp Y Tế 3D (Sát Cạnh Bảng Xanh)',
+                title: 'Hộp Y Tế 3D',
                 icon: '➕',
                 pos: new THREE.Vector3(-2.14, 1.38, -4.38),
                 camPreset: 'podium',
@@ -397,12 +397,12 @@
             },
             {
                 id: 'waterHygieneSpot',
-                title: 'Kệ Nước Uống & Trạm Vệ Sinh Cá Nhân 3D',
+                title: 'Kệ Nước Uống và Trạm Vệ Sinh Cá Nhân',
                 icon: '🚰',
                 pos: new THREE.Vector3(4.58, 0.95, -0.52),
                 camPreset: 'waterHygiene',
                 desc: 'Kệ nước uống (bình nước 20L có vòi và mực nước, khay 5 ca nước có quai cầm, chậu trầu bà rủ lá, cuộn khăn giấy lau) và Trạm vệ sinh cá nhân (bồn rửa tay sứ trắng lòng sâu, vòi inox, 3 chai nước rửa tay, khăn xếp, cuộn giấy lau tay). Cả 2 tủ ngăn dưới đều có thể click để mở/đóng cánh tủ xem các vật dụng dự trữ bên trong!',
-                tags: ['Mở được 2 tủ ngăn dưới', 'Bình nước & Ca có quai', 'Bồn rửa tay & Cuộn khăn giấy']
+                tags: ['Mở được 2 tủ ngăn dưới', 'Bình nước và Ca', 'Bồn rửa tay']
             },
             {
                 id: 'calmAndBehavior',
@@ -420,25 +420,25 @@
                 pos: new THREE.Vector3(-3.68, 1.65, 4.25),
                 camPreset: 'reading',
                 desc: 'Góc đọc sách phía sau lớp: kệ gỗ 3 tầng phân loại (Báo, tạp chí & Văn học; Khoa học – STEM; Truyện lịch sử / Danh nhân), quả địa cầu, bảng Nội quy góc đọc sách, thảm xanh da trời và 3 đệm hoa 6 cánh.',
-                tags: ['Kệ sách 3 tầng & Địa cầu', 'Nội quy góc đọc sách', '3 Đệm hoa 6 cánh']
+                tags: ['Kệ sách 3 tầng và Địa cầu', 'Nội quy góc đọc sách', '3 Đệm hoa 6 cánh']
             },
             {
                 id: 'creativeCorner',
-                title: 'Góc Sáng Tạo & Thùng Rác Phân Loại',
+                title: 'Góc Sáng Tạo',
                 icon: '🎨',
                 pos: new THREE.Vector3(3.45, 1.65, 4.25),
                 camPreset: 'creative',
                 desc: 'Góc sáng tạo phía sau lớp: bảng pegboard treo kéo, súng bắn keo, băng keo và 4 giỏ bút màu; bàn 2 tầng trưng bày 4 mô hình (Tuabin gió, Robot thông minh, Ngôi nhà xanh, Tên lửa), 4 khay học liệu, bảng Nội quy góc sáng tạo và Thùng rác xanh.',
-                tags: ['4 Mô hình STEM', 'Pegboard & 4 Khay học liệu', 'Thùng rác xanh']
+                tags: ['Mô hình STEM', 'Thùng rác xanh']
             },
             {
-                id: 'studentDesks',
+                id: 'Bàn học sinh',
                 title: '6 Bàn Nhóm Học Sinh (Nhóm 1 – Nhóm 6)',
                 icon: '🪑',
                 pos: new THREE.Vector3(0.20, 0.88, 0.15),
                 camPreset: 'desks',
                 desc: '6 bộ bàn nhóm hình chữ nhật bo góc mặt gỗ vàng mật ong chân sắt tròn sơn bạc (Nhóm 1 đến Nhóm 6), mỗi bàn gồm 6 ghế học sinh xếp quay quanh bàn và 1 chậu cây xanh đặt chính giữa mặt bàn.',
-                tags: ['6 Bàn nhóm (Nhóm 1–6)', '6 Ghế / bàn', 'Chậu cây giữa bàn']
+                tags: ['6 Bàn nhóm', 'Chậu cây giữa bàn']
             },
             {
                 id: 'door5A',
@@ -447,16 +447,16 @@
                 pos: new THREE.Vector3(4.95, 1.45, -1.85),
                 camPreset: 'door5A',
                 desc: 'Cửa đôi 2 cánh nối liền màu xanh lam kèm ô kính thông gió phía trên. Cánh trái trang trí bảng "LỚP HỌC HẠNH PHÚC", 8 nhãn điều tốt đẹp và vườn hoa tulip; cánh phải có 15 ô kính 3×5. Có thể mở ra bên ngoài hành lang, đẩy vào bên trong lớp hoặc đóng kín.',
-                tags: ['2 cửa nối liền', 'Mở ra ngoài / Đẩy vào trong', 'Lớp Học Hạnh Phúc']
+                tags: ['Mở ra ngoài / Đẩy vào trong', 'Lớp Học Hạnh Phúc']
             },
             {
                 id: 'corridorGarden5A',
-                title: 'Bảng Phân Công Trực Nhật & Khu Vườn Trước Lớp 5A',
+                title: 'Bảng Phân Công Trực Nhật và Khu Vườn Trước Lớp 5A',
                 icon: '🌺',
                 pos: new THREE.Vector3(5.05, 1.65, 0.55),
                 camPreset: 'corridor5A',
                 desc: 'Khung cảnh hành lang phía trước Lớp 5A gồm biển chào "LỚP 5A - Mỗi ngày đến lớp là một hành trình khám phá và trưởng thành", bảng "PHÂN CÔNG TRỰC NHẬT VÀ CHĂM SÓC MÔI TRƯỜNG LỚP HỌC - Tuần 1" (Nhóm 1–6: Trực lớp, Trực hành lang, Chăm sóc cây xanh), cửa sổ 3 ô màu xanh lam treo 3 chậu trầu bà rủ, bồn hoa gạch đá xám có hàng rào trắng và các chậu cây cảnh xanh tươi.',
-                tags: ['Bảng Lớp 5A', 'Bảng phân công trực nhật', 'Bồn hoa & 3 chậu treo']
+                tags: ['Bảng Lớp 5A', 'Bảng phân công trực nhật', 'Bồn hoa và 3 chậu treo']
             }
         ];
 
@@ -566,7 +566,7 @@
                             fiveTeachingsBoardMaterial.needsUpdate = true;
                         }
                     }
-                    showToast('Đã cập nhật bảng 5 Điều Bác Hồ Dạy từ ảnh của bạn!');
+                    showToast('5 Điều Bác Hồ Dạy');
                 };
                 img.src = e.target.result;
             };
@@ -852,9 +852,9 @@
             });
             updateDoorStateLabel();
             if (doorMode === 'outward') {
-                showToast('🚪 Đã mở 2 cánh cửa Lớp 5A hướng ra ngoài hành lang!');
+                showToast('🚪 Đã mở 2 cánh cửa Lớp!');
             } else {
-                showToast('🔒 Đã đóng kín 2 cánh cửa Lớp 5A!');
+                showToast('🔒 Đã đóng 2 cánh cửa Lớp!');
             }
         }
 
@@ -944,7 +944,7 @@
             const nextState = !(waterCabOpen && hygieneCabOpen);
             setCabinetDoorsState('water', nextState);
             setCabinetDoorsState('hygiene', nextState);
-            showToast(nextState ? '🗄️ Đã mở cả 2 tủ ngăn dưới (Kệ nước uống & Trạm vệ sinh)!' : '🗄️ Đã đóng cả 2 tủ ngăn dưới!');
+            showToast(nextState ? '🗄️ Đã mở cả 2 tủ ' : '🗄️ Đã đóng cả 2 tủ');
         }
 
         function spinTeacherChairAction() {
@@ -2233,7 +2233,7 @@
             showToast(
                 verticalDragFlies
                     ? '🛫 Đã bật: Kéo chuột lên/xuống để bay lên cao hoặc hạ thấp góc nhìn!'
-                    : '👁️ Đã bật: Kéo chuột lên/xuống để ngước/cúi (Giữ Shift hoặc Chuột phải để bay lên/xuống)!'
+              
             );
         }
 
@@ -2707,7 +2707,7 @@
                 trayGroup.add(mug);
             }
 
-            // 3D Upright Paper Towel Roll on Stand ("Khăn giấy cuộn để lau") on Right Side of Kệ nước uống
+            // 3D Upright Paper Towel Roll on Stand ("Khăn giấy lau") on Right Side of Kệ nước uống
             const waterPaperRoll = createPaperTowelRollHolder(true, 0.82);
             waterPaperRoll.position.set(0.39, shelfBottomY + 0.002, 0.04);
             waterGroup.add(waterPaperRoll);
@@ -3008,7 +3008,7 @@
                 hygieneGroup.add(tGrp);
             });
 
-            // 3D Sculpted Glazed White Porcelain Washbasin ("Bồn rửa tay sứ trắng lòng sâu bo tròn")
+            // 3D Sculpted Glazed White Porcelain Washbasin ("Bồn rửa tay sứ trắng")
             const sinkGroup = new THREE.Group();
             sinkGroup.position.set(0.05, vanH + 0.016, 0.02);
             const sW = 0.62, sH = 0.135, sD = 0.34;
@@ -3765,7 +3765,7 @@
                 boardWings.push(wing);
             });
 
-            // Vertical "Vườn hoa thi đua (Nhóm 1 – Nhóm 6)" + "Hoa cá nhân" & "Sao hợp tác" pasted directly onto the rear left green chalkboard (z = 0.058, behind the 2nd sliding wing at z = 0.074)
+            // Vertical "Vườn hoa thi đua (Nhóm 1 – Nhóm 6)" + "Hoa cá nhân" và "Sao hợp tác" pasted directly onto the rear left green chalkboard (z = 0.058, behind the 2nd sliding wing at z = 0.074)
             const vuonHoaFrontGroup = new THREE.Group();
             const vhW = 0.58, vhH = 1.02;
             vuonHoaFrontGroup.position.set(-1.475, 0.0, 0.058);
@@ -3790,7 +3790,7 @@
             vuonHoaFrontGroup.add(frontPinkPocket, frontYellowPocket);
             boardGroup.add(vuonHoaFrontGroup);
 
-            // Top & bottom aluminium rails the wider wings slide along
+            // Top bottom aluminium rails the wider wings slide along
             [-0.595, 0.595].forEach((ry) => {
                 const rail = new THREE.Mesh(new THREE.BoxGeometry(totalBoardW, 0.032, 0.045), aluMat);
                 rail.position.set(0, ry, 0.062);
@@ -3822,7 +3822,7 @@
 
             scene.add(boardGroup);
 
-            // 3. Paired Ultra-HD Posters: "5 Điều Bác Hồ Dạy" + "Trích thư Hồ Chủ Tịch" & First Aid Box
+            // 3. Paired Ultra-HD Posters: "5 Điều Bác Hồ Dạy" + "Trích thư Hồ Chủ Tịch" First Aid Box
             fiveTeachingsBoardMaterial = new THREE.MeshStandardMaterial({
                 map: createUncleHoPosterPairTexture('fiveTeachings'),
                 roughness: 0.45
@@ -3997,7 +3997,7 @@
             firstAidDoorPivot.userData = { targetRotY: 0 };
 
             const dOffset = boxW / 2 - 0.015;
-            // Left & Right vertical door stiles + Top & Bottom horizontal door rails
+            // Left & Right vertical door stiles + Top  Bottom horizontal door rails
             const topDoorRail = new THREE.Mesh(new THREE.BoxGeometry(boxW - 0.01, 0.078, 0.018), faWhiteMat);
             topDoorRail.position.set(dOffset, boxH / 2 - 0.039, 0.009);
             const botDoorRail = new THREE.Mesh(new THREE.BoxGeometry(boxW - 0.01, 0.036, 0.018), faWhiteMat);
@@ -4053,7 +4053,7 @@
             doorGlass.position.set(dOffset - 0.005, -0.022, 0.009);
             firstAidDoorPivot.add(doorGlass);
 
-            // Circular White & Red Cross Emblem in the Center of the Glass Window
+            // Circular White Red Cross Emblem in the Center of the Glass Window
             const emblemGroup = new THREE.Group();
             emblemGroup.position.set(dOffset - 0.005, -0.022, 0.013);
             const whiteDisc = new THREE.Mesh(new THREE.CylinderGeometry(0.058, 0.058, 0.006, 28), faWhiteMat);
@@ -4067,7 +4067,7 @@
             emblemGroup.add(whiteDisc, redRing, crossH, crossV);
             firstAidDoorPivot.add(emblemGroup);
 
-            // Silver Pull Handle & Keyhole Lock on Right Door Stile
+            // Silver Pull Handle Keyhole Lock on Right Door Stile
             const faHandle = new THREE.Mesh(new THREE.CylinderGeometry(0.006, 0.006, 0.076, 12), faSilverMat);
             faHandle.position.set(boxW - 0.041, -0.015, 0.024);
             const faLock = new THREE.Mesh(new THREE.CylinderGeometry(0.010, 0.010, 0.006, 16), faSilverMat);
@@ -4154,7 +4154,7 @@
                 cabinetGroup.add(bk);
             }
 
-            // Glass panes & silver handles on the 2 upper doors
+            // Glass panes silver handles on the 2 upper doors
             const glassDoorMat = new THREE.MeshStandardMaterial({
                 color: 0xe0f2fe,
                 transparent: true,
@@ -4412,7 +4412,7 @@
             penCup.castShadow = true;
             deskGroup.add(penCup);
 
-            // Orange scissors handles & pens inside white cup
+            // Orange scissors handles  pens inside white cup
             [-0.014, 0.014].forEach((ox) => {
                 const scLoop = new THREE.Mesh(
                     new THREE.TorusGeometry(0.014, 0.005, 8, 16),
@@ -4442,7 +4442,7 @@
                 deskGroup.add(bk);
             });
 
-            // Clear Glass Vase with Lush Pink Roses & Green Leaves on Right Side of Teacher Desk
+            // Clear Glass Vase with Lush Pink Roses Green Leaves on Right Side of Teacher Desk
             const vaseGroup = new THREE.Group();
             vaseGroup.position.set(0.46, 0.778, 0.12);
 
@@ -4548,7 +4548,7 @@
             const noiQuyDienBoard = createFramedRuleBoard(noiQuyDienMaterial, 3.50, 1.88, 1.12, 0.78);
             scene.add(noiQuyLopBoard, noiQuyDienBoard);
 
-            // 2. Interactive 3D Electrical Switch Panel ("Bộ công tắc Đèn & Quạt") right beside "Nội quy sử dụng thiết bị điện"
+            // 2. Interactive 3D Electrical Switch Panel ("Bộ công tắc Đèn và Quạt") right beside "Nội quy sử dụng thiết bị điện"
             const switchPanelGroup = new THREE.Group();
             switchPanelGroup.position.set(4.36, 1.62, frontZ + 0.026);
 
