@@ -1,6 +1,6 @@
-# Mô phỏng Không gian 3D Lớp học 5A1
+# Mô phỏng Không gian 3D Lớp học 5A
 
-Ứng dụng web 3D (Three.js) mô phỏng không gian lớp học 5A1. Chỉ gồm một file `index.html` tự chứa toàn bộ mã và hình ảnh, không cần build.
+Ứng dụng web 3D (Three.js) mô phỏng không gian lớp học 5A. Chỉ gồm một file `index.html` tự chứa toàn bộ mã và hình ảnh, không cần build.
 
 ## Chạy trên máy
 Mở trực tiếp `index.html` bằng trình duyệt (cần Internet để tải Three.js, Tailwind, Google Fonts từ CDN).
