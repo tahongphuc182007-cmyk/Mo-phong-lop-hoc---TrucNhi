@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mô phỏng Không gian 3D Lớp học 5A</title>
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="relative text-slate-100">
+
+    <!-- Hidden File Input for custom Uncle Ho Portrait upload -->
+    <input id="uncle-ho-file-input" type="file" accept="image/*" class="hidden" onchange="handleUncleHoFileUpload(event)" />
+    <!-- Hidden File Input for custom 5 Teachings Poster upload -->
+    <input id="five-teachings-file-input" type="file" accept="image/*" class="hidden" onchange="handleFiveTeachingsFileUpload(event)" />
+
+    <!-- 3D WebGL Canvas Container -->
+    <div id="canvas-container"></div>
+
+    <!-- Dynamic 3D Hotspot Overlay Container -->
+    <div id="hotspots-layer" class="pointer-events-none fixed inset-0 overflow-hidden z-20"></div>
+
+    <!-- Floating Button to Restore Guide Bars when Hidden -->
+    <button id="show-guide-bars-fab" onclick="toggleGuideBars()" class="hidden fixed top-3 right-3 z-40 glass-panel px-3.5 py-2 rounded-2xl text-xs font-extrabold text-amber-300 hover:text-white shadow-2xl border border-amber-400/50 items-center gap-2 transition pointer-events-auto" title="Hiện lại các thanh hướng dẫn và điều khiển">
+        <span>👁️</span>
+        <span>Hiện thanh hướng dẫn</span>
+    </button>
+
+    <!-- Top Navigation & Control Bar -->
+    <header id="top-guide-header" class="fixed top-3 left-3 right-3 z-30 flex flex-wrap items-center justify-between gap-2 pointer-events-none transition-opacity duration-300">
+        <!-- Brand / Title Badge -->
+        <div class="glass-panel pointer-events-auto flex items-center gap-3 px-4 py-2 rounded-2xl shadow-xl">
+            <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-amber-400 to-orange-600 flex items-center justify-center text-lg shadow-inner">
+                🏫
+            </div>
+            <div>
+                <div class="flex items-center gap-2">
+                    <h1 class="text-sm sm:text-base font-extrabold tracking-tight text-white">Lớp Học 3D - Lớp 5A</h1>
+                </div>
+                <p class="text-[11px] text-slate-300 hidden sm:block">Kéo chuột ngang: xoay • Kéo chuột dọc: bay lên cao & hạ thấp • W/A/S/D: di chuyển</p>
+            </div>
+        </div>
+
+        <!-- Action Controls -->
+        <div class="glass-panel pointer-events-auto flex flex-wrap items-center gap-1.5 sm:gap-2 px-2.5 py-1.5 rounded-2xl shadow-xl text-xs">
+            <button onclick="triggerUncleHoUpload()" class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-amber-600/90 hover:bg-amber-500 text-white font-semibold shadow-sm transition" title="Tải trực tiếp tệp ảnh Bác Hồ (image_0f767b.jpg) từ máy của bạn">
+                <span>🖼️</span>
+                <span class="hidden sm:inline">Ảnh Bác Hồ</span>
+            </button>
+
+            <button onclick="triggerFiveTeachingsUpload()" class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-sky-600/90 hover:bg-sky-500 text-white font-semibold shadow-sm transition" title="Tải trực tiếp ảnh 5 Điều Bác Hồ Dạy nếu muốn">
+                <span>📜</span>
+                <span class="hidden md:inline">Ảnh 5 Điều</span>
+            </button>
+
+            <!-- Real-time Exposure / Brightness Slider to prevent classroom glare -->
+            <div class="flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-slate-800/85 border border-slate-600/80 text-amber-200" title="Điều chỉnh độ dịu sáng trong phòng học">
+                <span>☀️</span>
+                <span class="hidden lg:inline text-[11px]">Độ sáng:</span>
+                <input id="exposure-slider" type="range" min="0.50" max="1.15" step="0.02" value="0.78" oninput="updateExposure(this.value)" class="w-16 sm:w-20 accent-amber-400 cursor-pointer h-1.5 bg-slate-600 rounded-lg" />
+                <span id="exposure-val" class="text-[11px] font-semibold text-white w-7">78%</span>
+            </div>
+
+            <button onclick="spinTeacherChairAction()" class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-blue-600/90 hover:bg-blue-500 text-white font-semibold border border-blue-400/40 transition" title="Click để xoay ghế văn phòng của giáo viên (hoặc click trực tiếp vào ghế trong 3D)">
+                <span>💺</span>
+                <span class="hidden sm:inline">Xoay ghế GV</span>
+            </button>
+
+            <button onclick="toggleFans()" class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-slate-800/90 hover:bg-slate-700 text-slate-100 font-medium border border-slate-600/60 transition">
+                <span>🌀</span>
+                <span class="hidden md:inline">Quạt:</span>
+                <span id="fan-state-text" class="text-emerald-400 font-bold">Bật</span>
+            </button>
+
+            <button onclick="toggleLights()" class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-slate-800/90 hover:bg-slate-700 text-slate-100 font-medium border border-slate-600/60 transition">
+                <span>💡</span>
+                <span class="hidden md:inline">Đèn:</span>
+                <span id="light-state-text" class="text-amber-300 font-bold">Bật</span>
+            </button>
+
+            <button onclick="toggleBoardWings()" class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-slate-800/90 hover:bg-slate-700 text-slate-100 font-medium border border-slate-600/60 transition" title="Đẩy hoặc kéo 2 cánh bảng trượt (khi đẩy sang hai bên để mở Tivi, bảng thứ 2 sẽ che Vườn hoa thi đua ở bảng sau)">
+                <span>📺</span>
+                <span class="hidden md:inline">Tivi:</span>
+                <span id="board-state-text" class="text-emerald-400 font-bold">Hiện</span>
+            </button>
+
+            <button id="toggle-door-btn" onclick="toggleClassroomDoors()" class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-blue-600/90 hover:bg-blue-500 text-white font-semibold border border-blue-400/40 transition" title="Đóng hoặc mở 2 cánh cửa Lớp 5A hướng ra ngoài hành lang">
+                <span>🚪</span>
+                <span class="hidden md:inline">Cửa Lớp 5A:</span>
+                <span id="door-state-text" class="text-emerald-300 font-bold">Đang mở</span>
+            </button>
+
+            <button id="toggle-firstaid-btn" onclick="toggleFirstAidBox()" class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-red-600/90 hover:bg-red-500 text-white font-semibold border border-red-400/40 transition" title="Đóng hoặc mở cửa kính Hộp y tế 3D (hoặc nhấp trực tiếp vào Hộp y tế trên tường)">
+                <span>➕</span>
+                <span class="hidden md:inline">Hộp y tế:</span>
+                <span id="firstaid-state-text" class="text-amber-200 font-bold">Đóng</span>
+            </button>
+
+            <button id="toggle-lower-cabs-btn" onclick="toggleLowerCabinets()" class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-amber-600/90 hover:bg-amber-500 text-white font-semibold border border-amber-400/40 transition" title="Mở hoặc đóng 2 tủ ngăn dưới của Kệ nước uống & Trạm vệ sinh cá nhân (hoặc click trực tiếp vào cánh tủ 3D)">
+                <span>🗄️</span>
+                <span class="hidden md:inline">2 Tủ dưới:</span>
+                <span id="lower-cabs-state-text" class="text-amber-200 font-bold">Đóng</span>
+            </button>
+
+            <button onclick="toggleHotspots()" class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-slate-800/90 hover:bg-slate-700 text-slate-100 font-medium border border-slate-600/60 transition">
+                <span>📍</span>
+                <span id="hotspot-state-text" class="hidden sm:inline">Điểm thông tin</span>
+            </button>
+
+            <button id="toggle-vertical-drag-btn" onclick="toggleVerticalDragMode()" class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-amber-500/90 hover:bg-amber-400 text-slate-950 font-bold shadow-sm transition" title="Chuyển chế độ kéo chuột dọc: Bay lên cao / Hạ thấp xuống hoặc Ngước / Cúi góc nhìn (Chuột phải luôn dùng cho chế độ còn lại)">
+                <span>🛫</span>
+                <span id="vertical-drag-mode-text">Kéo dọc: Bay lên/xuống</span>
+            </button>
+
+            <button id="toggle-intro-btn" onclick="playExteriorToInteriorTour()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-white font-semibold shadow-md transition">
+                <span>🎬</span>
+                <span>Bay vào lớp</span>
+            </button>
+
+            <button id="toggle-guide-bars-btn" onclick="toggleGuideBars()" class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-rose-600/90 hover:bg-rose-500 text-white font-semibold border border-rose-400/40 shadow-sm transition" title="Ẩn các thanh hướng dẫn và điều khiển để xem toàn màn hình">
+                <span>🙈</span>
+                <span class="hidden sm:inline">Tắt thanh hướng dẫn</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hotspot Details Modal Card -->
+    <aside id="info-card" class="fixed top-20 right-4 z-30 w-80 sm:w-96 glass-panel rounded-2xl p-4 shadow-2xl transition-all duration-300 opacity-0 pointer-events-none translate-x-6">
+        <div class="flex items-start justify-between gap-2 mb-2">
+            <div class="flex items-center gap-2.5">
+                <span id="info-icon" class="text-2xl">🏫</span>
+                <h2 id="info-title" class="text-base font-bold text-white">Khu vực lớp học</h2>
+            </div>
+            <button onclick="closeInfoCard()" class="w-7 h-7 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center justify-center text-sm font-bold">✕</button>
+        </div>
+        <p id="info-desc" class="text-xs leading-relaxed text-slate-200 mb-3"></p>
+        <div id="info-tags" class="flex flex-wrap gap-1.5"></div>
+    </aside>
+
+    <!-- Toast Notification Banner -->
+    <div id="toast-msg" class="fixed top-20 left-1/2 -translate-x-1/2 z-40 glass-panel px-4 py-2 rounded-xl text-xs font-semibold text-amber-200 shadow-lg transition-opacity duration-300 opacity-0 pointer-events-none">
+        Đã cập nhật không gian 3D!
+    </div>
+
+    <!-- Bottom Camera Presets Dock -->
+    <nav id="bottom-guide-nav" class="fixed bottom-3 left-1/2 -translate-x-1/2 z-30 max-w-[96vw] overflow-x-auto pointer-events-auto transition-opacity duration-300">
+        <div class="glass-panel flex items-center gap-1.5 px-2.5 py-2 rounded-2xl shadow-2xl whitespace-nowrap text-xs">
+            <button onclick="moveCameraToPreset('exterior')" class="px-3 py-1.5 rounded-xl bg-slate-800/90 hover:bg-indigo-600 text-slate-100 font-semibold transition flex items-center gap-1.5">
+                <span>🏢</span><span>Bên ngoài (Như Video)</span>
+            </button>
+            <button onclick="moveCameraToPreset('overview')" class="px-3 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold transition flex items-center gap-1.5">
+                <span>🏫</span><span>Toàn cảnh Lớp 5A</span>
+            </button>
+            <button onclick="moveCameraToPreset('podium')" class="px-3 py-1.5 rounded-xl bg-slate-800/90 hover:bg-indigo-600 text-slate-100 font-medium transition flex items-center gap-1.5">
+                <span>🇻🇳</span><span>Bục giảng & Bác Hồ</span>
+            </button>
+            <button onclick="moveCameraToPreset('creative')" class="px-3 py-1.5 rounded-xl bg-slate-800/90 hover:bg-indigo-600 text-slate-100 font-medium transition flex items-center gap-1.5">
+                <span>🎨</span><span>Góc sáng tạo</span>
+            </button>
+            <button onclick="moveCameraToPreset('backWall')" class="px-3 py-1.5 rounded-xl bg-rose-600/90 hover:bg-rose-500 text-white font-semibold transition flex items-center gap-1.5">
+                <span>🌈</span><span>Phía sau lớp (6 Góc)</span>
+            </button>
+            <button onclick="moveCameraToPreset('calmCorner')" class="px-3 py-1.5 rounded-xl bg-sky-600/90 hover:bg-sky-500 text-white font-semibold transition flex items-center gap-1.5">
+                <span>🧘</span><span>Góc bình tĩnh & Hành vi</span>
+            </button>
+            <button onclick="moveCameraToPreset('reading')" class="px-3 py-1.5 rounded-xl bg-slate-800/90 hover:bg-indigo-600 text-slate-100 font-medium transition flex items-center gap-1.5">
+                <span>📚</span><span>Góc đọc sách</span>
+            </button>
+            <button onclick="moveCameraToPreset('hopThuSinhNhat')" class="px-3 py-1.5 rounded-xl bg-pink-600/90 hover:bg-pink-500 text-white font-semibold transition flex items-center gap-1.5">
+                <span>🎂</span><span>Hộp thư & Sinh nhật</span>
+            </button>
+            <button onclick="moveCameraToPreset('desks')" class="px-3 py-1.5 rounded-xl bg-slate-800/90 hover:bg-indigo-600 text-slate-100 font-medium transition flex items-center gap-1.5">
+                <span>🪑</span><span>Bàn ghế học sinh</span>
+            </button>
+            <button onclick="moveCameraToPreset('corridor5A')" class="px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold transition flex items-center gap-1.5">
+                <span>🌺</span><span>Hành lang trước Lớp 5A</span>
+            </button>
+            <button onclick="moveCameraToPreset('waterHygiene')" class="px-3 py-1.5 rounded-xl bg-cyan-600/90 hover:bg-cyan-500 text-white font-semibold transition flex items-center gap-1.5">
+                <span>🚰</span><span>Kệ nước & Vệ sinh</span>
+            </button>
+            <button onclick="moveCameraToPreset('door5A')" class="px-3 py-1.5 rounded-xl bg-blue-600/90 hover:bg-blue-500 text-white font-semibold transition flex items-center gap-1.5">
+                <span>🚪</span><span>Cửa Lớp 5A</span>
+            </button>
+        </div>
+    </nav>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
